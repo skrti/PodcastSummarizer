@@ -35,15 +35,4 @@ How It Works
 
     The transcription output is saved to the same bucket.
 
-Environment
-
-    Runtime: Python 3.9+
-
-    AWS Services Used:
-
-        AWS Lambda
-
-        Amazon S3
-
-        Amazon Transcribe
 
