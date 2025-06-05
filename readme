@@ -1,0 +1,22 @@
+AWS S3 to Transcribe Lambda Function
+This Lambda function automatically triggers an AWS Transcribe job whenever a new MP3 audio file is uploaded to a designated Amazon S3 bucket. The transcribed text will then be saved back to the same S3 bucket.
+
+How it Works
+S3 Event Trigger: The Lambda function is configured to be triggered by an S3 event (specifically, s3:ObjectCreated:Put).
+File Retrieval: When an MP3 file is uploaded to the monitored S3 bucket, the Lambda function receives the event, extracts the bucket name and file key.
+Transcription Job: It then initiates an AWS Transcribe job for the uploaded audio file.
+Output: The transcribed text (in JSON format) is stored in the same S3 bucket as the original audio file.
+Setup
+Prerequisites
+An AWS account.
+Basic understanding of AWS Lambda, S3, and Transcribe.
+1. Create an S3 Bucket
+If you don't already have one, create an S3 bucket to store your audio files. This bucket will also be where the transcription output is saved.
+
+2. Create an IAM Role for Lambda
+Create an IAM role that your Lambda function will assume. This role needs the following permissions:
+
+s3:GetObject: To read the audio file from the S3 bucket.
+s3:PutObject: To write the transcription output back to the S3 bucket.
+transcribe:StartTranscriptionJob: To initiate transcription jobs.
+logs:CreateLogGroup, logs:CreateLogStream, logs:PutLogEvents: For CloudWatch logging.
