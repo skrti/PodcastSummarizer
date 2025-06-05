@@ -29,7 +29,7 @@ def lambda_handler(event, context):
     job_name = re.sub(r"[^0-9a-zA-Z._-]", "-", file_key)
 
     try:
-        transcribe.start_transcription_job(
+        transcribe.start_transcription_job(    //start transcription
             TranscriptionJobName=job_name,
             Media={"MediaFileUri": file_uri},
             MediaFormat="mp3",  
