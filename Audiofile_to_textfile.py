@@ -13,7 +13,7 @@ def lambda_handler(event, context):
     if "Records" not in event:
         return {
             "statusCode": 400,
-            "body": json.dumps("Invalid event structure: No 'Records' key found")
+            "body": json.dumps("Invalid event structure: No 'Records' key found")    //
         }
 
     record = event["Records"][0]  # First record
